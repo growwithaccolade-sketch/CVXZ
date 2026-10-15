@@ -1,3 +1,4 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-export default defineConfig({plugins:[react()],build:{outDir:'dist'},publicDir:'public'});
+import { resolve } from 'node:path';
+export default defineConfig({plugins:[react()],build:{outDir:'dist',rollupOptions:{input:{main:resolve(process.cwd(),'index.html'),builder:resolve(process.cwd(),'builder.html')}}}});
